@@ -1,0 +1,49 @@
+#include <stdio.h>
+int control = 0;
+int estado = 0;
+int main(){
+
+    do{
+
+        switch(estado){
+            case 0:
+                printf("El lavarropas esta quieto\n"); 
+                estado=1;
+                break;
+            case 1: 
+                printf("Si queres que empiece a lavar manda un 1 y si no manda un 0\n");
+                scanf("%d", &control);
+                if (control == 1)
+                estado=2;
+                if (control == 0) 
+                    estado=0;
+                    
+                if (control != 1 && control !=0){
+                    printf("Error");
+                }
+                break;    
+            case 2: 
+                printf("El lavarropas termino de lavar, si quiere pasar al centrifugado mande un 1 y si no quiere mande un 0\n");
+                scanf("%d", &control);
+                if (control == 1)
+                estado=3;
+                if (control == 0) 
+                    estado=0;
+                    
+                if (control != 1 && control !=0){
+                    printf("Error");
+                }
+                break;
+            case 3:
+                printf("el lavarropas esta en modo centrifugado, si queres que cuando termine vuelva a empezar manda un 1\n");
+                scanf("%d", &control);
+                if (control == 1)
+                    estado=0;
+                if (control != 1) 
+                    estado=4;
+                break;
+            
+        }
+    }while(estado!=4);
+    printf("El lavarropas termino de lavar y puede sacar la ropa¡!");
+}
