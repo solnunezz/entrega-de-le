@@ -1,0 +1,37 @@
+#include <stdio.h>
+struct Alumnos{
+    float notas;
+    struct Alumnos *siguiente;
+}alumno1, alumno2, alumno3, alumno4;
+
+void ingresar(void);
+void mostrar(void);
+struct Alumnos *p = NULL;
+
+int main(){
+    p = &alumno1;
+    alumno1.siguiente = &alumno2;
+    alumno2.siguiente = &alumno3;
+    alumno3.siguiente = &alumno4;
+    alumno4.siguiente = NULL;
+
+    ingresar();
+    mostrar();
+    
+}
+    
+void ingresar(){
+    struct Alumnos *p1=p;
+    for(int i=1; i<5; i++){
+         printf("ingrese la nota del alumno %d ",i);
+         scanf("%f",&(p1->notas));
+         p1=p1->siguiente;
+    }
+}
+
+void mostrar(){
+    for(int i=1;i<5;i++){
+         printf("La nota del alumno %d es: %.2f \n",i, p->notas);
+         p=p->siguiente;
+     }
+}
