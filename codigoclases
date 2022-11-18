@@ -1,0 +1,53 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+  class trapecio
+{
+   private:
+    float baseM;
+    float baseC;
+    float lado1;
+    float lado2;
+    float altura;
+    
+   public:
+    trapecio (float, float);
+    void perimetro ();
+    void area ();
+    trapecio (float M, float C, float L1, float L2, float h) {
+    this->baseM = M;
+    this->baseC=C;
+    this->lado1=L1;
+    this->lado2=L2;
+    this->altura=h;
+ }
+
+};
+   
+
+void trapecio::perimetro (){
+  cout << "El perimetro del trapecio es: " <<(baseM+baseC+lado1+lado2) << endl;
+}
+
+ void trapecio::area(){
+  cout << "El área del trapecio es:"<<(((baseM+baseC)*altura)/2)<<endl;
+}
+float M,C,L1,L2,h;
+
+int main (){
+    float num;
+    cout<<"Ingrese valor de la base mayor:"<<endl;
+    cin>> M;
+    cout<<"Ingrese el valor de la base menor:"<<endl;
+    cin>>C;
+    cout<<"Ingrese el valor de uno de los lados:"<<endl;
+    cin>>L1;
+    cout<< "Ingrese el valor del otro lado:"<<endl;
+    cin>>L2;
+    cout<<"Ingrese la altura:"<<endl;
+    cin>>h;
+    trapecio dato(M,C,L1,L2,h);
+    dato.perimetro();
+    dato.area();
+    
+}
