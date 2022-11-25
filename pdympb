@@ -1,0 +1,13 @@
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+infocancer = pd.read_csv("Global cancer incidence in women.csv") 
+print (infocancer)
+
+x = infocancer.get(["Cancer"])
+y = infocancer.get(["New cases in 2020"])
+
+ax = infocancer.plot(kind="bar").axes
+print(ax)
+plt.show()
